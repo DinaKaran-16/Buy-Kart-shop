@@ -1,0 +1,46 @@
+
+{% extends 'shop/layouts/main.html' %}
+{% include  'shop/inc/nav.html' %}
+
+{% block title %}
+Buykart | online shoping
+{% endblock title %}
+{% block contant %}
+<section class="bg-light py-4 my-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h4 class="mb-3">{{catagory_name}} Products</h4>
+                <hr style="border-color: #b8bfc2;">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                      <li class="breadcrumb-item"><a href="{% url 'home'%}">Home</a></li>
+                      <li class="breadcrumb-item active">{{catagory_name}} Collection</li>
+                    </ol>
+                  </nav>
+                  {% load static %}
+                  <img src="{% static 'images/tem4.jfif'%}" class="d-block w-100" style="height: 70%;" alt="">
+                  {% include 'shop/inc/message.html' %} 
+            </div>
+            
+            {% for item in products %}
+            <div class="col-md-4 col-lg-3">
+                <div class="card my-3">
+                    <img src="{{item.product_img.url}}" class="card-image-top" alt="Catagories">
+                    <a href="{% url 'product_details' catagory__name item.name %}">
+                    <div class="card-body">
+                        <h5 class="card-title text-primary" style="text-transform: capitalize;">{{ item.name }}</h5>
+                        <p class="card text">
+                            <span class="float-start pricetag"><s>Rs.{{ item.orginal_price | stringformat:'d'}}</s></span>
+                            <span class="float-end pricetag2">Rs.{{ item.offer_price | stringformat:'d'}}</span>
+                        </p>
+                        <button class="btn btn-primary" style="padding-left: 7.5rem; padding-right: 7.8rem; background-color: green; text-align: center;">Buy Now</button>                    
+                    </div>
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock contant %}

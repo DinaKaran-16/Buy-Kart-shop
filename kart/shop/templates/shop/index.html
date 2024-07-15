@@ -1,0 +1,32 @@
+{% extends 'shop/layouts/main.html' %}
+{% include  'shop/inc/nav.html' %}
+
+{% block title %}
+Buykart | online shoping
+{% endblock title %}
+{% block contant %}
+{%include 'shop/inc/slide.html' %}
+
+    <div class="container" style="margin-top: 4rem;">
+        <div class="row">
+            <div class="col-12"><h1>Today Offers</h1></div>
+            {% for item in products %}
+            <div class="col-md-4 col-lg-3">
+                <div class="card my-3">
+                    <img src="{{item.product_img.url}}" class="card-image-top" alt="Catagories">
+                    <a href="{% url 'product_details' item.catagory.name item.name %}">
+                    <div class="card-body">
+                        <h5 class="card-title text-primary" style="text-transform: capitalize;">{{ item.name }}</h5>
+                        <p class="card text">
+                            <span class="float-start pricetag"><s>Rs.{{ item.orginal_price | stringformat:'d'}}</s></span>
+                            <span class="float-end pricetag2">Rs.{{ item.offer_price | stringformat:'d'}}</span>
+                        </p>                    
+                    </div>
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock contant %}
+

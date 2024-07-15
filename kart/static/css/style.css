@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+html{
+    font-size: 14px;
+}
+body{
+    font-family: 'poppins',sans-serif;
+}
+a{
+    text-decoration: none;
+}
+.carousel-item img {
+    height: 70vh;
+    width: 80px;
+    object-position: top;
+    object-fit: cover;
+    overflow: hidden;
+}
+.pricetag {
+    font-weight: bold;
+    color: red;
+}
+.pricetag2 {
+    font-weight: bold;
+    color: green;
+}
+.pic-box{
+    position: relative;
+}
+.Trending{
+    background-color: #2c660a;
+    color: white;
+    width: 85px;
+    text-align: center;
+    font-weight: bold;
+    display: inline;
+    border-radius: 5px;
+    padding: 5PX;
+    z-index: 10px;
+    top: 0;
+    right: 50px;
+    position: absolute;
+}
+
+
+    
